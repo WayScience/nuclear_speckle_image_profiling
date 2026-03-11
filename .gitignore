@@ -1,11 +1,11 @@
 # Ignore images folder in download data module as nd2 files are too large
-0.download_data/images
+1.wave1_data/0.download_data/images
 
 # Ignore max-projected images since it would be too large
-1.max_projection/max_projected_images
+1.wave1_data/1.max_projection/max_projected_images
 
 # Ignore illumination corrected images due to large size
-2.illumination_correction/IC_corrected_images
+1.wave1_data/2.illumination_correction/IC_corrected_images
 
 # Ignore python related files/folders
 __pycache__/
@@ -27,3 +27,6 @@ runinfo*
 
 # Ignore any folder called "old" as it contains previous runs that can be used for comparisons
 old*
+
+# Ignore any "in-progress" work folder that is not ready for sharing
+*in_progress*
