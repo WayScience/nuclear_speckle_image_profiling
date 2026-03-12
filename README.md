@@ -37,9 +37,9 @@ Three slides/plates of data was collected, with 4 wells each.
 
 There are three conda environments we use in this repository:
 
-1. [`cellprofiler_env.yml`](./cellprofiler_env.yml) is used for running CellProfiler in parallel across plates.
-2. [`python_env.yml`](./python_env.yml) is used for notebooks focused on either preprocessing steps or other analysis.
-3. [`r_env.yml`](./r_env.yml) is used for visualization of data and generating plots.
+1. [`cellprofiler_env.yml`](./environments/cellprofiler_env.yml) is used for running CellProfiler in parallel across plates.
+2. [`python_env.yml`](./environments/python_env.yml) is used for notebooks focused on either preprocessing steps or other analysis.
+3. [`r_env.yml`](./environments/r_env.yml) is used for visualization of data and generating plots.
 
 These environments can be created using the command:
 
