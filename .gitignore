@@ -1,17 +1,17 @@
 # Ignore images folder in download data module as nd2 files are too large
-1.wave1_data/0.download_data/images
+*images*
 
 # Ignore max-projected images since it would be too large
-1.wave1_data/1.max_projection/max_projected_images
+*max_projected_images*
 
 # Ignore illumination corrected images due to large size
-1.wave1_data/2.illumination_correction/IC_corrected_images
+*IC_corrected_images*
 
 # Ignore processed features due to large size
-1.wave1_data/4.preprocess_features/data*
+*data*
 
 # Ignore QC results as these are intermediate files
-1.wave1_data/2.illumination_correction/qc_results*
+*qc_results*
 
 # Ignore SQLite outputs from CP analysis due to large size
 *analysis_output*
