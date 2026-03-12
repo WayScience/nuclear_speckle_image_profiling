@@ -8,11 +8,11 @@ conda activate nuclear_speckle_cp_env
 # change directory into the metadata folder
 cd ./metadata
 
-# convert notebook to python file into the scripts folder
-jupyter nbconvert --to script --output-dir=scripts/ *.ipynb
+# convert notebook to python file into the nbconverted folder
+jupyter nbconvert --to script --output-dir=nbconverted/ *.ipynb
 
 # run python script to analyze plates
-python scripts/generate_platemap_csvs.py
+python nbconverted/generate_platemap_csvs.py
 
 # change directory back to original
 cd ..

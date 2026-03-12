@@ -1,12 +1,15 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Run whole image QC pipeline in CellProfiler
+# # Process TIFF files with illumination correction
 # 
+# Illumination correction (IC) is a step in the image analysis pipeline to remove any illumination errors that could be impacting the biology of the cells. 
+# The function we generate in the CellProfiler pipeline are the "best" possible given the parameters available.
+# We will process the 16-bit TIFF files with IC and save as the same bit-depth.
 
 # ## Import libraries
 
-# In[1]:
+# In[ ]:
 
 
 import pathlib
@@ -14,7 +17,7 @@ import pprint
 
 import sys
 
-sys.path.append("../utils")
+sys.path.append("../../utils")
 import cp_parallel
 
 
@@ -24,13 +27,15 @@ import cp_parallel
 
 
 # set the run type for the parallelization
-run_name = "whole_image_qc"
+run_name = "illum_correction"
 
-# set path for pipeline for illumination correction
-path_to_pipeline = pathlib.Path("./pipelines/whole_image_qc.cppipe").resolve(strict=True)
+# path to IC pipeline
+path_to_pipeline = pathlib.Path("./pipelines/illumination_correction.cppipe").resolve(
+    strict=True
+)
 
-# set main output dir for all plates if it doesn't exist
-output_dir = pathlib.Path("./qc_results")
+# set main output dir for all plates
+output_dir = pathlib.Path("./IC_corrected_images")
 output_dir.mkdir(exist_ok=True)
 
 # directory where images are located within folders
@@ -43,12 +48,10 @@ for file_path in images_dir.iterdir():
     if str(file_path.stem).startswith("slide"):
         plate_names.append(str(file_path.stem))
 
-print("There are a total of", len(plate_names), "plates. The names of the plates are:")
-for plate in plate_names:
-    print(plate)
+print(plate_names)
 
 
-# ## Generate dictionary with plate info to run CellProfiler
+# ## Create dictionary with all info for each plate
 
 # In[3]:
 
@@ -61,7 +64,6 @@ plate_info_dictionary = {
         ),
         "path_to_output": pathlib.Path(f"{output_dir}/{name}"),
         "path_to_pipeline": path_to_pipeline,
-
     }
     for name in plate_names
 }
@@ -70,9 +72,11 @@ plate_info_dictionary = {
 pprint.pprint(plate_info_dictionary, indent=4)
 
 
-# ## Run QC pipeline in CellProfiler
+# ## Run illumination correction pipeline on each plate in parallel
+# 
+# In this notebook, we do not run the cells to completion as we prefer to run the notebooks as nbconverted python files due to better stability.
 
-# In[4]:
+# In[ ]:
 
 
 cp_parallel.run_cellprofiler_parallel(
