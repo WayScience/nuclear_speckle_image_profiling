@@ -19,14 +19,14 @@ from pycytominer import annotate, normalize, feature_select
 
 # ## Set paths and variables
 
-# In[2]:
+# In[ ]:
 
 
 # Path to dir with converted profiles per plate (each plate as a folder)
 cleaned_dir = pathlib.Path("./data/cleaned_sc_profiles")
 
 # path for plate map directory
-platemap_dir = pathlib.Path(f"../0.download_data/metadata/platemaps")
+platemap_dir = pathlib.Path("../0.download_data/metadata/platemaps")
 
 # Output dir for the files to be saved to
 output_dir = pathlib.Path("./data/single_cell_profiles")

@@ -8,7 +8,7 @@
 
 # ## Import libraries
 
-# In[1]:
+# In[ ]:
 
 
 import pathlib
@@ -16,7 +16,7 @@ import pprint
 
 import sys
 
-sys.path.append("../utils")
+sys.path.append("../../utils")
 import cp_parallel
 
 
