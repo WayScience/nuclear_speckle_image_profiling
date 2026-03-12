@@ -1,32 +1,32 @@
 # Ignore images folder in download data module as nd2 files are too large
-*images*
+**/images*
 
 # Ignore max-projected images since it would be too large
-*max_projected_images*
+**/max_projected_images*
 
 # Ignore illumination corrected images due to large size
-*IC_corrected_images*
+**/IC_corrected_images*
 
 # Ignore processed features due to large size
-*data*
+**/data*
 
 # Ignore QC results as these are intermediate files
-*qc_results*
+**/qc_results*
 
 # Ignore SQLite outputs from CP analysis due to large size
-*analysis_output*
+**/analysis_output*
 
 # Ignore python related files/folders
-__pycache__/
+**/__pycache__/**
 
 # Ignore log files since those are created during runs
-logs*
+**/logs*
 
 # Ignore CytoTable logs
-runinfo*
+**/runinfo*
 
 # Ignore any folder called "old" as it contains previous runs that can be used for comparisons
-old*
+**/old*
 
 # Ignore any "in-progress" work folder that is not ready for sharing
-*in_progress*
+**/in_progress*
